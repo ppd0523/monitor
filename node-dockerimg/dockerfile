@@ -1,10 +1,10 @@
 FROM node:16.4-slim
 MAINTAINER emma415g@gmail.com
 
+COPY node /usr/src/node
+
 WORKDIR /usr/src/node
 
-COPY ../node/* /usr/src/node/
-
-RUN npm install
+RUN npm i
 
 CMD ["bach", "-c", "cd /usr/src/node && npm start"]

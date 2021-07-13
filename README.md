@@ -4,21 +4,23 @@ POST 한 데이터를 출력하는 웹애플리케이션
 
 ## 모니터링 URL
 ```
-GET http://IP
+GET http://158.247.205.129/
 ```
 
 
 ## 데이터 업로드 URL
 ```
-POST http://IP/api/data
+POST http://158.247.205.129/api/data
+
+# post body는 포맷 없는 plain text
 ```
 
 
 ### Example
 
 1. Linux
-```
-$ curl -d "my text data, or any plaint text" http://IP/api/data
+```sh
+$ curl -d "my text data, or any plain text" http://158.247.205.129/api/data
 ```
 
 2. Web browser
