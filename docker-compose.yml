@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+        node:
+                container_name: node
+                image: node:16.4-slim
+                volumes:
+                        - ./node/:/usr/src/node/
+                restart: always
+                command:
+                        bash -c "cd /usr/src/node && npm start"
+
+        nginx:
+                container_name: nginx
+                image: nginx:1.21.0
+                ports:
+                        - 80:80
+                depends_on:
+                        - node
+                volumes:
+                        - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+                        - ./nginx/conf.d/:/etc/nginx/conf.d/
+                        - ./front/:/usr/share/nginx/html/  # static page
+                links:
+                        - node:NODE_ADDR
+                restart: always
